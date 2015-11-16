@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Game Network Interfaces test harness read me</title>
+</head>
+<body>
+    <div>
+        <h2>API</h2>
+        <p>The following methods are available via the ICommonGameNetworkControl interface</p>
+        <ul>
+            <li>
+                <h4>Guid Login(string username, string password)</h4>
+                <div>In order to work with the network you will need to log the user in. A list of test user id's and passwords is below. If the login is successful you will recieve a guid which is your session identifier. Each request to the service must include this session identifier. If the login attempt failed a null will be returned. For security reasons, the user will not be told if the username was a valid username. This version does not handle failures due to system issues on the providers end. vNext will throw an exception in these cases.</div>
+            </li>
+            <li>
+                <h4>bool Logout(Guid sessionToken)</h4>
+                <div>This will explicitly close your session with the game network provider. A boolean is returned indicating success.</div>
+            </li>
+            <li>
+                <h4>int PostScoreToLeaderboard(Guid sessionToken, Guid gameToken, int score)</h4>
+                <div>This will submit the players score from their last game to the leader board. This does <i>not</i> mean that the users score will appear in any of the top X. The return value is the location on the leader board that the player was assigned after the score from this game was applied.</div>
+            </li>
+            <li>
+                <h4>IEnumerable<LeaderBoardEntry> GetLeaderBoard(Guid sessionToken, Guid gameToken, int count)</h4>
+                <div>Returns the top players for the requested game. The count parameter indicates how many players to return (i.e. Top 10, Top 50, etc.)</div>
+            </li>
+            <li>
+                <h4>IEnumerable<Player> GetFriends(Guid sessionToken)</h4>
+                <div>Gets a list of the current users friends in the system. Players and their lists of friends can be found below.</div>
+            </li>
+            <li>
+                <h4>bool AddFriends(Guid sessionToken, Guid playerId)</h4>
+                <div>Addes new friends to the players friend list. Returns a success indicator. If the palyer is already a friend then no change is made and true is returned. For testing purposes, and valid guid can be used as the new friend id</div>
+            </li>
+            <li>
+                <h4>Guid InviteFriendToMatch(Guid sessionToken, Guid invitedPlayerId, Guid gameToken)</h4>
+                <h4>Guid InviteFriendToMatch(Guid sessionToken, Guid invitedPlayerId, Guid gameToken, Guid matchToken)</h4>
+                <div>Used to invite person from the curent users friend list to a game. Both versions return a match token which is used to start the specific instance of the game betwen the current users and their invities. The short version assumes the current user does not have a game token and can be used when inviting the first friend. The long version is used when a match with participants is already created and the current user wants to add additional participants.</div>
+            </li>
+            <li>
+                <h4>Guid StartMatch(Guid sessionToken, Guid matchToken)</h4>
+                <div>Once the current user has invited all the participants they want, they can actually start the match by calling this method. At this point the actually mechanics of the multi-player game is taken over by another process and is out of scope of this service.</div>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2>Test data and entities</h2>
+        <div>
+            <h3>User ids</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Password</th>
+                        <th>User Id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>testUser1</td>
+                        <td>1234@abcd</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>testUser2</td>
+                        <td>lmno$2468</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>testUser3</td>
+                        <td>wxyz*9876</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>          
+        </div>
+        <div>
+            <h3>User friends</h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Friend User Name</th>
+                        <th>Friend User Id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3">testUser1</td>
+                        <td>Manny</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Moe</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Jack</td>
+                        <td></td>
+                    </tr>
+
+
+                    <tr>
+                        <td rowspan="3">testUser2</td>
+                        <td>Larry</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Curly</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Moe</td>
+                        <td></td>
+                    </tr>
+
+
+                    <tr>
+                        <td rowspan="3">testUser3</td>
+                        <td>Huey</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Dewey</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Louie</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

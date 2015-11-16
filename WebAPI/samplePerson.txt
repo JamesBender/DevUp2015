@@ -1,0 +1,70 @@
+<Person xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PersonnelDirectory.Web2.Models.ViewModels">
+<FirstName>Barney</FirstName>
+<LastName>Rubble</LastName>
+<Title>Cog</Title>
+<Department>Unknown</Department>
+</Person>
+
+
+
+
+
+{"FirstName":"Wilma","LastName":"Flinstone","Department": "Flintstone house", "Title": "Boss"}
+
+
+
+<Person xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://schemas.datacontract.org/2004/07/PersonnelDirectory.Web.Models.ViewModels">
+
+<FirstName>Barney</FirstName>
+<LastName>Rubble</LastName>
+<Title>Cog</Title>
+<Department>Unknown</Department>
+</Person>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Content-Type: application/json; charset=utf-8
+Content-Type: application/xml; charset=utf-8
+<Person xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><FirstName>Frd</FirstName><LastName>Flinston</LastName><UserId>0</UserId></Person>
+
+Accept: application/xml
+
+
+<Person xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PersonnelDirectory.Web.Models.ViewModels"><Department>Rock Quarry</Department><FirstName>Fred</FirstName><LastName>Flinstone</LastName><Title>Worker</Title><UserId>1</UserId></Person>

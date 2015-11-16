@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Truthyness and Comparisons</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css"/>
+</head>
+<body>
+    <table>
+        <tr><th>Value</th><th>Truth</th></tr>
+        <tr><td>False test:</td><td><span id='falseTest'></span></td></tr>
+        <tr><td>Null test:</td><td><span id='nullTest'></span></td></tr>
+        <tr><td>Undefined test:</td><td><span id='undefinedTest'></span></td></tr>
+        <tr><td>Empty string test:</td><td><span id='emptyStringTest'></span></td></tr>
+        <tr><td>Zero test:</td><td><span id='zeroTest'></span></td></tr>
+        <tr><td>NaN test:</td><td><span id='naNTest'></span></td></tr>
+        <tr><td colspan="2"></td> </tr>
+        <tr><td>True as string:</td><td><span id='trueAsString'></span></td></tr>
+        <tr><td>True as value:</td><td><span id='trueAsValue'></span></td></tr>
+        <tr><td>True as a non-zero number:</td><td><span id='trueAsNumber'></span></td></tr>
+        <tr><td>True as a non-zero number string:</td><td><span id='trueAsNumberString'></span></td></tr>
+    </table>
+    <hr/>
+    <table>
+        <tr><th>String Value</th><th>Numeric Value</th><th>Comparer</th><th>Result</th></tr>
+        <tr><td>'5'</td><td>5</td><td>==</td><td><span id="loseCompareResult"></span></td></tr>
+        <tr><td>'5'</td><td>5</td><td>===</td><td><span id="strictCompareResult"></span></td></tr>
+        <tr><td>'5'</td><td>'5'</td><td>===</td><td><span id="bothStringCompareResult"></span></td></tr>
+        <tr><td>5</td><td>5</td><td>===</td><td><span id="bthNumericCompareResult"></span></td></tr>
+    </table>
+    <script type="text/javascript" src="./app.js"></script>
+</body>
+</html>

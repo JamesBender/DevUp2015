@@ -1,0 +1,39 @@
+-- Git for Windows
+0) Create Repo
+	You can do it with "Git init" on your local drive
+	I prffer to go to Github and create a repository
+1) Intoduce Github
+	Show dashboad when you login
+	Show how to create a repository
+		You get a .gitinit for "free"
+2) Create repository in Github, clone to local drive
+	Show repo page
+	show readme, explain that it's in mark down
+	show .gitignore, explain what it is
+	Show the issues tab
+		Create an issue
+	Show the settings tab
+		Show adding a collaborator
+		Show webhooks and services
+			Webkooks allow you to tie in a custom service
+			Show services
+3) clone locally
+	Show .zip download
+	explain https vs. ssh
+	clone w/ ssh
+4) Create a console app
+	Explain index/two step commit
+	Add files to index, show resetting them back (git reset <filename>)
+	Re-add and commit changes
+	Discuss how to revert changes (git revert HEAD)
+	make a commit, revert it
+		mention reset, but caution
+5) Branches
+	Create a branch off of master
+	Make a change to the branch in a seperate file
+	Merge it back in
+6) Rebasing
+	Show makking a change with rebase
+	show how it does not do a jagged graph
+7) Push up to Github
+	
